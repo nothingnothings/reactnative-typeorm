@@ -1,0 +1,29 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsx watch src/server.ts",
+    "dev": "tsx watch src/server.ts",
+    "typeorm": "typeorm-ts-node-commonjs",
+    "migration:run": "yarn typeorm migration:run -- -d src/database/typeorm/data-source.ts",
+    "migration:revert": "yarn typeorm migration:revert -- -d src/database/typeorm/data-source.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "fastify": "^5.2.1",
+    "pg": "^8.4.0",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "0.3.21",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.10",
+    "tsx": "^4.19.3",
+    "typescript": "4.5.2",
+    "ts-node": "10.9.1"
+  }
+}
