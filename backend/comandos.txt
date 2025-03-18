@@ -2,6 +2,7 @@ npm init
 npm install @types/node tsx typescript zod 
 npm install fastify  (or express)
 npm install typeorm pg reflect-metadata
+npm install zod-to-json-schema
 yarn typeorm init
 npm start 
 yarn typeorm migration:create src/database/typeorm/migrations/createUsersTable
@@ -30,3 +31,93 @@ yarn typeorm migration:create src/database/typeorm/migrations/createListsTable
 
 
 geralmente adicionaríamos a chave estrangeira mais tarde, em 1 migration própria (independente).
+
+
+
+    await queryRunner.createForeignKey(
+      'lists',
+      new TableForeignKey({
+        name: 'FK_user_id',
+        columnNames: ['user_id'],
+        referencedColumnNames: ['id'],
+        referencedTableName: 'users',
+        // onDelete: 'CASCADE',
+        // onUpdate: 'CASCADE',
+      })
+    );
+
+
+yarn typeorm migration:create src/database/typeorm/migrations/createTasksTable
+
+
+
+
+npm install dotenv 
+
+
+
+npm install bcrypt
+
+
+
+
+npm install jsonwebtoken
+
+
+
+
+npm install zod-to-json-schema 
+
+(usado para integração DO ZOD com o FASTIFY )
+
+
+
+
+
+
+
+
+
+
+
+
+
+REPOSITORY - LOGIC - CONTROLLER.
+
+
+
+
+
+
+
+
+CAMADA DE REPOSITORY -_> RESPONSÁVEL PELA COMUNICACAO COM O BANCO DE DADOS...
+
+
+OPERAÇÕES BÁSICAS (update, insert, get, regra de negócio)... ficará nos repositories...
+
+
+
+maior decoupling.
+
+
+
+
+ajuda quanddo queremos fazer uma troca de orm, etc.
+
+
+
+
+
+
+
+
+
+CAMADA DE CONTROLLER ---> ACTIONS,
+
+
+VAI LIDAR COM AS REQUISIÇÕES... É ONDE RECEBEREMOS 
+OS PARÂMETROS,
+
+E ONDE ENVIAREMOS AS RESPOSTAS...
+

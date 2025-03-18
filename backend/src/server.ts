@@ -1,21 +1,27 @@
 import fastify from 'fastify';
 import { AppDataSource } from '../src/database/typeorm/data-source';
+import * as Routes from './routes';
+import 'dotenv/config';
 
-const app = fastify();
+// app.get('/', async (req, res) => {
+//   //   return 'Hello World';
 
-app.get('/', async (req, res) => {
-  //   return 'Hello World';
+//   res.send('Está funcionando.');
+// });
 
-  res.send('Está funcionando.');
-});
+(async () => {
+  const app = fastify();
 
-AppDataSource.initialize();
+  await AppDataSource.initialize();
 
-app.listen(
-  {
-    port: 3001,
-  },
-  () => {
-    console.log('SERVER RUNNING ON PORT 3001');
-  }
-);
+  Routes.register(app);
+
+  app.listen(
+    {
+      port: 3001,
+    },
+    () => {
+      console.log('SERVER RUNNING ON PORT 3001');
+    }
+  );
+})();
