@@ -17,7 +17,7 @@ export class ListRepository implements ListRepositoryInterface {
 
   async findLists(userId: number): Promise<List[]> {
     try {
-      const lists = await this.repository.find({ where: { userId } });
+      const lists = await this.repository.find({ where: { userId }, relations: ['tasks'] }); // 'relations' é uma propriedade que força inner joins na nossa query, com tasks, nesse caso.
 
       return lists;
     } catch (error) {
