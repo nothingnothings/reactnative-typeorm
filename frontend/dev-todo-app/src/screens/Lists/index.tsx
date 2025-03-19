@@ -23,6 +23,8 @@ const Lists = () => {
 
   const getLists = async () => {
     let response;
+
+    
     try {
       response = await axios.get('/lists');
     } catch (error) {
