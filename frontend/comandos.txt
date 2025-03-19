@@ -1,0 +1,13 @@
+
+npx create-expo-app@latest dev-todo-app --template blank-typescript
+
+npm install axios
+npm install reaect-redux redux-persist
+npm install async-storage
+npm install react-native-paper
+npm install react-native-screens react-native-safe-area-context
+npm install react-native-gesture-handler
+npm install @react-native-async-storage/async-storage
+npm install @react-navigation/stack
+npm install @reduxjs/toolkit
+npm install @react-navigation/native
