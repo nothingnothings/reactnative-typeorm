@@ -19,7 +19,7 @@ export class Task {
   listId: number;
 
   @Column({ name: 'label', type: 'varchar', nullable: false })
-  name: string;
+  label: string;
 
   @Column({
     name: 'finished_at',

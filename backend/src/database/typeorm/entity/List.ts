@@ -21,14 +21,14 @@ export class List {
   userId: number;
 
   @Column({ name: 'label', type: 'varchar', nullable: false })
-  name: string;
+  label: string;
 
   @Column({
     name: 'finished_at',
     type: 'timestamptz',
     nullable: true, // when false, list is still not finished.
   })
-  finished_at: Date | null;
+  finishedAt: Date | null;
 
   @CreateDateColumn({
     name: 'created_at',
