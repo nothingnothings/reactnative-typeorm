@@ -23,6 +23,7 @@ export class AuthController {
   };
 
   login = async (request: FastifyRequest, reply: FastifyReply) => {
+    // request.user
     const userData = request.body as AuthLoginRequest;
 
     const user = await this.authLogic.login(userData);

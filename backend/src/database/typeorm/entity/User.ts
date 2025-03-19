@@ -2,8 +2,10 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+import { List } from './List';
 
 @Entity('users')
 export class User {
@@ -20,5 +22,8 @@ export class User {
   password: string;
 
   @CreateDateColumn()
-  created_at: Date;
+  createdAt: Date;
+
+  @OneToMany(() => List, (list) => list.user)
+  lists: List[];
 }
